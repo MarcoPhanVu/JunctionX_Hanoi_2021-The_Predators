@@ -19,7 +19,11 @@ const io = socketio(server);
 
 io.on('connection', (socket) => {
     console.log('New User connected');
-    socket.emit('message', 'Hello there. You are the 1st connector');
+    socket.emit('message', `Hi, welcome to the room`); //Only that user receive the message
+
+    socket.on('message', (txt) => {
+        io.emit('message', txt);//all user receive this message
+    });
 })
 
 server.on('error', (err) => {
@@ -27,5 +31,5 @@ server.on('error', (err) => {
 })
 
 server.listen(8080, () => {
-    console.log("Can you see me?");
+    console.log("Host started at 8080");
 })

@@ -19,7 +19,7 @@
     width: 100%;
     min-width: 200px;
     height: 60%;
-    justify-content: center;
+    justify-content: bottom;
     overflow: hidden;
 }
 
