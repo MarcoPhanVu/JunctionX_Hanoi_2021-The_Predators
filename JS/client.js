@@ -1,5 +1,6 @@
-const evC = document.querySelector('#eventsContainer');
+const sock = io();
 
+const evC = document.querySelector('#eventsContainer');
 
 
 const printEvent = (txt) => {
@@ -12,5 +13,5 @@ printEvent('Checking if this is working');
 printEvent('Please work');
 printEvent('Luv u');
 
-const sock = io();
-sock.on('message', printEvent)
+
+sock.on('message', printEvent);
