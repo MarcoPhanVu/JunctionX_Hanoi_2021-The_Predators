@@ -1,0 +1,15 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: rgb(106, 202, 240);
+    height: 150px;
+    width: 30%;
+}
+
+.container ul li {
+    list-style-type: none;
+}
