@@ -127,6 +127,9 @@
     <!-- Sripts go here -->
     <!-- <script src="Server\node_modules\socket.io\client-dist\socket.io.js"> </script> -->
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="http://127.0.0.1:5501/socket.io/socket.io.js"></script>
+    <script src="http://127.0.0.1:5502/socket.io/socket.io.js"></script>
+    <script src="http://127.0.0.1:5500/socket.io/socket.io.js"></script>
     <script src="https://kiteryukatori.github.io:3000/socket.io/socket.io.js"></script>
     <script src="chatting.js"></script>
     <!-- had to hard coded in everthing, don't know how to link with sockets???? -->
@@ -156,18 +159,17 @@
         const cvs = document.getElementById('cvs');
         const ctx = cvs.getContext('2d');
 
-        ctx.fillStyle = 'pinkpastel';
+        ctx.fillStyle = 'green';
 
         function draw(x, y) {
-            const cir = newPath2D();
-            cir.arc(x, y, 5, 0, 2 * Math.PI);
-            ctx.fill(cir);
-
-            // ctx.beginPath();
-            // ctx.arc(x, y, 1, 0, Math.PI*2, false);
-            // ctx.fillStyle = ballColorsList[ballLevel-1];
-            // ctx.fill();
-            // ctx.closePath();
+            // const cir = new Path2D();
+            // cir.arc(x, y, 5, 0, 2 * Math.PI);
+            // ctx.fill(cir);
+            ctx.beginPath();
+            ctx.arc(x, y, 10, 5, Math.PI*2, false);
+            ctx.fillStyle = "green";
+            ctx.fill();
+            ctx.closePath();
         }
 
         let mouseDown = false;
@@ -188,7 +190,6 @@
             const bounding = cvs.getBoundingClientRect();
             draw (clientX - bounding.left, clientY - bounding.right);
         })
-
 
 
 
