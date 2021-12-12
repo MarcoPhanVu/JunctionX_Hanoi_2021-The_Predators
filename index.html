@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Draw time</title>
+  <title>Guess the Drawing</title>
   <!-- cdn bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -212,7 +212,7 @@ button {
 <body>
   <div class="login-form" style="border-radius: 30px;">
     <!-- logo -->
-    <div class="logo"><img src="images/logo2.jpg" alt=""></div>
+    <div class="logo"><img src="logo2.jpg" alt=""></div>
 
     <div class="mt-5">
       <h6>LET'S PLAY</h6>
@@ -236,7 +236,7 @@ button {
 
     <!-- btn start now  -->
     <div class="btn-start mt-3">
-      <button id="start">
+      <button id="start" href = "game.html">
         Start now
       </button>
     </div>
@@ -263,18 +263,17 @@ button {
       startBtn.addEventListener('click', function(e) {
         e.preventDefault();
         if (pName.value) {
-          // socket.emit('message', pName.value);
-          console.log("Playername: ", pName.value);
-          pName.value = '';
+          //socket.emit('message', pName.value);
+          window.location = 'game.html';
         }
       });
     
-      socket.on('message', function(msg) {
-        var item = document.createElement('li');
-        item.textContent = msg;
-        messages.appendChild(item);
-        window.scrollTo(0, document.body.scrollHeight);
-      });
+      // socket.on('message', function(msg) {
+      //   var item = document.createElement('li');
+      //   item.textContent = msg;
+      //   messages.appendChild(item);
+      //   window.scrollTo(0, document.body.scrollHeight);
+      // });
     </script>
 </body>
 
