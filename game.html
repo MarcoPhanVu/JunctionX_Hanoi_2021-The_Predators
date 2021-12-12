@@ -83,6 +83,14 @@
     outline: none; 
     color: #fff; 
 }
+
+#cvs {
+    position: relative;
+    border: solid rgb(124, 124, 124) 2px;
+    margin: auto;
+    display: block;
+}
+
     </style>
 <!-- what is wrong with sockets/nodejs linking mechanism???? -->
 </head>
@@ -92,16 +100,16 @@
         <div id="messageSection">
             <ul id="messageList">
                 <li>This is the 1st message</li>
+                <li>Please work</li>
+                <li>Why????</li>
+                <!-- <li>Just work for once</li>
+                <li>Let's quit</li>
+                <li>ưhy??? socket why????</li>
+                <li>pls giv me a sign</li>
+                <li>f</li>
+                <li>Shouldn't have been here</li>
                 <li>This is the 2nd message</li>
-                <li>This is the 3rd message</li>
-                <!-- <li>This is the 4th message</li>
-                <li>This is the 5th message</li>
-                <li>This is the 2nd message</li>
-                <li>This is the 3rd message</li>
-                <li>This is the 4th message</li>
-                <li>This is the 5th message</li>
-                <li>This is the 2nd message</li>
-                <li>This is the 3rd message</li>
+                <li>im tired</li>
                 <li>This is the 4th message</li>
                 <li>This is the 5th message</li> -->
             </ul>
@@ -146,7 +154,40 @@
 
         //CANVASCANVASCANVASCANVASCANVASCANVASCANVASCANVAS
         const cvs = document.getElementById('cvs');
+        const ctx = cvs.getContext('2d');
 
+        ctx.fillStyle = 'pinkpastel';
+
+        function draw(x, y) {
+            const cir = newPath2D();
+            cir.arc(x, y, 5, 0, 2 * Math.PI);
+            ctx.fill(cir);
+
+            // ctx.beginPath();
+            // ctx.arc(x, y, 1, 0, Math.PI*2, false);
+            // ctx.fillStyle = ballColorsList[ballLevel-1];
+            // ctx.fill();
+            // ctx.closePath();
+        }
+
+        let mouseDown = false;
+
+        cvs.addEventListener('mousedown', (ev) => {
+            mouseDown = true;
+        })
+
+        cvs.addEventListener('mouseup', (ev) => {
+            mouseDown = false;
+        })
+
+        cvs.addEventListener('mousemove', (ev) => {
+            if (!mouseDown) {
+                return;
+            }
+            //Bounding -> get pos in cvs not the whole web page
+            const bounding = cvs.getBoundingClientRect();
+            draw (clientX - bounding.left, clientY - bounding.right);
+        })
 
 
 
